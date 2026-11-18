@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Софт</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/html2canvas.min.js" defer></script>
+    <script src="js/theme.js" defer></script>
+    <script src="js/Terminal.js" defer></script>
+    <script src="js/TrophyPage.js" defer></script>
+    <script src="js/webhtml.js" defer></script>
+    <script src="js/chaos.js" defer></script>
+    <script src="js/player.js" defer></script>
+    <script src="js/wrapped.js" defer></script>
+</head>
+<body>
+    <script>
+        if (sessionStorage.getItem('cat_chat_window_open') === 'true') document.body.classList.add('chat-restored-state');
+        if (localStorage.getItem('global_player_minimized') === 'true') document.body.classList.add('player-restored-minimized');
+    </script>
+
+    <header>
+        <div class="logo-row">
+            <a href="index.html" class="logo">PHRONTO</a>
+            <div class="theme-switch-container">
+                <span class="switch-label label-light">СВЕТЛАЯ</span>
+                <button class="theme-toggle-switch" id="themeToggle" aria-label="Переключить тему оформления">
+                    <div class="switch-rail">
+                        <div class="switch-handle">
+                            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                        </div>
+                    </div>
+                </button>
+                <span class="switch-label label-dark">ТЕМНАЯ</span>
+            </div>
+        </div>
+        <nav class="ps5-menu">
+            <a href="index.html" class="ps5-tile">
+                <div class="ps5-tile-content">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3L2 12h3v8a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-8h3L12 3z"/>
+                    </svg>
+                    <span>Главная</span>
+                </div>
+            </a>
+            <a href="music.html" class="ps5-tile">
+                <div class="ps5-tile-content">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h6V3h-8z"/>
+                    </svg>
+                    <span>Музыка</span>
+                </div>
+            </a>
+            <a href="game.html" class="ps5-tile">
+                <div class="ps5-tile-content">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                    </svg>
+                    <span>Игротека</span>
+                </div>
+            </a>
+            <a href="tech.html" class="ps5-tile active">
+                <div class="ps5-tile-content">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M5 5h14v14H5V5zm4 4v6h6V9H9zm-5 2H2v2h2v-2zm16 0h2v2h-2v-2zm-9-9h2v2h-2V2zm0 18h2v2h-2v-2zM7 2h1v2H7V2zm9 0h1v2h-1V2zM7 20h1v2H7v-2zm9 0h1v2h-1v-2zM2 7h2v1H2V7zm0 9h2v1H2v-1zm18-9h2v1h-2V7zm0 9h2v1h-2v-1z"/>
+                    </svg>
+                    <span>Софт</span>
+                </div>
+            </a>
+            <a href="trophy.html" class="ps5-tile">
+                <div class="ps5-tile-content">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18 2H6c-1.1 0-2 .9-2 2v3c0 2.24 1.51 4.13 3.54 4.7C8.21 13.36 10 15 12 15s3.79-1.64 4.46-3.3c2.03-.57 3.54-2.46 3.54-4.7V4c0-1.1-.9-2-2-2zM6 7V4h2v3H6zm12 0h-2V4h2v3zm-6 10c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm2 2h-4v2h4v-2z"/>
+                    </svg>
+                    <span>Достижения</span>
+                </div>
+            </a>
+            <a href="dino.html" class="ps5-tile">
+                <div class="ps5-tile-content">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M21.5 6h-19C1.67 6 1 7.12 1 8.5v7c0 1.38.67 2.5 1.5 2.5.83 0 1.66-.67 2-1.5l1.5-3.5h12l1.5 3.5c.34.83 1.17 1.5 2 1.5.83 0 1.5-1.12 1.5-2.5v-7c0-1.38-.67-2.5-1.5-2.5zm-14 5H6v2H5v-2H3.5v-1H5V8h1v2h1.5v1zM14.5 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                    </svg>
+                    <span>Игра</span>
+                </div>
+            </a>
+        </nav>
+    </header>
+
+    <main class="pipeline-container">
+        <div class="pipeline-intro">
+            <h1>Система и Софт</h1>
+            <p>Мой личный обзор программ, утилит и интерактивных сред, которые я использую на своем ПК для учебы, геймдева и повседневной жизни.</p>
+        </div>
+
+        <div class="pipeline-flow">
+            <div class="ps5-card pipeline-step">
+                <div class="step-content">
+                    <h2 class="step-title">3D-Production и Графика</h2>
+                    <p class="step-text">Мой основной комплекс для работы с графикой и визуалом. В <strong>Blender 5.2</strong> я делаю абсолютно всё 3D, от пропсов до сложных сцен, а в <strong>Marvelous Designer</strong> симулирую реалистичную одежду. Текстуры и процедурные карты запекаю через <strong>Substance 3D Painter</strong>. Универсальный <strong>Photoshop 2026</strong> закрывает как задачи геймдева, так и любые мои повседневные графические нужды.</p>
+                    <div class="step-apps">
+                        <span class="app-tag">Blender 5.2</span>
+                        <span class="app-tag">Substance 3D Painter</span>
+                        <span class="app-tag">Photoshop 2026</span>
+                        <span class="app-tag">Marvelous Designer</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ps5-card pipeline-step">
+                <div class="step-content">
+                    <h2 class="step-title">Разработка игр и Среда кода</h2>
+                    <p class="step-text">Здесь я учусь геймдеву и пробую собрать свой собственный кооперативный хоррор на базе <strong>Unreal Engine</strong> (запускаю через Epic Games). Чтобы архитектура игры была под полным контролем, а писать код было максимально удобно, я использую мощную связку из <strong>VS Code</strong> и <strong>Visual Studio</strong>. Это сердце моих интерактивных проектов.</p>
+                    <div class="step-apps">
+                        <span class="app-tag">Unreal Engine</span>
+                        <span class="app-tag">VS Code</span>
+                        <span class="app-tag">Visual Studio</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ps5-card pipeline-step">
+                <div class="step-content">
+                    <h2 class="step-title">Контроль железа, Периферия и Звук</h2>
+                    <p class="step-text">Инструменты для настройки и калибровки моего ПК. Через <strong>NVIDIA App</strong> я обновляю драйверы видеокарты, а в <strong>MSI Center</strong> контролирую материнскую плату. <strong>Razer Synapse</strong> отвечает за точную работу моих мышки и клавиатуры. За звук в наушниках и чистую запись микрофона отвечает внешняя звуковая карта с софтом <strong>Focusrite</strong>.</p>
+                    <div class="step-apps">
+                        <span class="app-tag">NVIDIA App</span>
+                        <span class="app-tag">Razer Synapse</span>
+                        <span class="app-tag">MSI Center</span>
+                        <span class="app-tag">Focusrite Control</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ps5-card pipeline-step">
+                <div class="step-content">
+                    <h2 class="step-title">Сеть, Безопасность и Утилиты</h2>
+                    <p class="step-text">Софт для защиты и полной свободы в сети. С помощью <strong>Sandboxie</strong> я запускаю файлы в изолированной песочнице или открываю игры в два окна. Связка из <strong>AmneziaVPN</strong> и кастомных <strong>DNS-батников</strong> необходима мне для моментального восстановления стабильного доступа ко всему интернету. Для работы с документами и книгами использую классический <strong>Acrobat</strong>.</p>
+                    <div class="step-apps">
+                        <span class="app-tag">Sandboxie</span>
+                        <span class="app-tag">AmneziaVPN</span>
+                        <span class="app-tag">DNS Bat-Scripts</span>
+                        <span class="app-tag">Adobe Acrobat</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ps5-card pipeline-step">
+                <div class="step-content">
+                    <h2 class="step-title">Повседневный софт и Отдых</h2>
+                    <p class="step-text">Программы на каждый день. Мой основной браузер - <strong>Google Chrome</strong> (хотя тот же <strong>Firefox</strong> тоже считаю крутым альтернативным решением). Для беспроводного обмена файлами между телефоном, ПК и телевизором незаменим <strong>LocalSend</strong>. За общение отвечают мессенджеры <strong>Discord</strong> и <strong>Telegram</strong>, а для расслабления и кооперативных сессий с друзьями я открываю <strong>Steam</strong>.</p>
+                    <div class="step-apps">
+                        <span class="app-tag">Google Chrome</span>
+                        <span class="app-tag">LocalSend</span>
+                        <span class="app-tag">Steam</span>
+                        <span class="app-tag">Discord / Telegram</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Phronto</p>
+    </footer>
+
+    <script>localStorage.setItem('visited_tech', 'true');</script>
+
+    <div class="ps5-persistent-player">
+        <audio id="globalAudio" src="sound/music/InnerLight.mp3" loop></audio>
+        <div class="player-row-title">
+            <span class="track-title" id="playerTrackTitle">Elderbrook & Bob Moses - Inner Light</span>
+            <button class="player-min-btn" id="playerMinimizeBtn" title="Свернуть плеер">
+                <svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+            </button>
+        </div>
+        <div class="player-row-bottom-bar">
+            <div class="player-controls-group">
+                <button class="player-ctrl-btn" id="playerPrevBtn" title="В начало трека / Предыдущий">
+                    <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+                </button>
+                <button class="player-ctrl-btn main-play-trigger" id="globalPlayerBtn" title="Воспроизведение / Пауза">
+                    <svg class="icon-play" viewBox="0 0 24 24" id="playerPlayIcon"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="icon-pause" viewBox="0 0 24 24" id="playerPauseIcon" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <button class="player-ctrl-btn" id="playerNextBtn" title="Следующий трек">
+                    <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6zm9-12v12h2V6z"/></svg>
+                </button>
+                <button class="player-ctrl-btn" id="playerLoopBtn" title="Зациклить плейлист (выкл.)" style="opacity: 0.45;">
+                    <svg viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
+                </button>
+            </div>
+            <span class="time-stamp digit-current" id="playerCurrentTime">0:00</span>
+            <div class="progress-bar-container" id="progressBarContainer">
+                <div class="progress-bar-fill" id="progressBarFill"></div>
+                <div class="progress-bar-handle" id="progressBarHandle"></div>
+            </div>
+            <span class="time-stamp digit-duration" id="playerDurationTime">0:00</span>
+            <div class="player-volume-zone">
+                <span class="volume-icon" id="playerVolumeIcon">🔊</span>
+                <input type="range" class="volume-slider" id="playerVolume" min="0" max="1" step="0.01" value="0.5">
+                <span class="volume-percent-text" id="playerVolumePercent">50%</span>
+            </div>
+        </div>
+    </div>
+
+    <button class="ps5-mobile-player-trigger" id="playerMaximizeBtn" title="Развернуть плеер">
+        <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+    </button>
+
+    <div id="catChatWidget" class="cat-chat-widget">
+        <div id="catChatTrigger" class="cat-chat-trigger">
+            <div id="catChatTeaser" class="cat-chat-teaser">Мяу?</div>
+            <img src="img/GameImage/cat.png" alt="Чат" class="cat-trigger-icon">
+            <div class="chat-pulse-glow"></div>
+        </div>
+        <div id="catChatWindow" class="cat-chat-window">
+            <div class="chat-window-header">
+                <div class="chat-header-avatar">
+                    <img src="img/GameImage/cat.png" alt="Кото-ИИ">
+                    <span class="chat-online-status"></span>
+                </div>
+                <div class="chat-header-info">
+                    <h4>Котик</h4>
+                    <span class="chat-version">Активен</span>
+                </div>
+                <button id="chatCloseBtn" class="chat-close-x">&times;</button>
+            </div>
+            <div class="chat-window-body">
+                <div id="chatMessagesStack" class="chat-messages-stack">
+                    <div id="catTypingStatus" class="cat-msg-bubble system-typing">
+                        <span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-window-footer">
+                <button id="catPetBtn" class="chat-reply-btn" style="display: none;">Погладить котика</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

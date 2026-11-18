@@ -1,0 +1,178 @@
+.pipeline-container {
+    width: 100%;
+    padding: 20px 0 60px 0; 
+    box-sizing: border-box;
+}
+
+.pipeline-intro {
+    width: 100%;
+    margin-bottom: 30px; 
+    text-align: left;
+}
+
+.pipeline-intro h1 {
+    color: var(--text-primary);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+.pipeline-intro p {
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.pipeline-flow {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px; 
+}
+
+.pipeline-step {
+    width: 60%; 
+    box-sizing: border-box;
+    position: relative;
+    padding: 24px;
+    margin: 0;
+    background-color: var(--tile-bg);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--border-color); 
+    border-radius: 12px;
+    transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pipeline-flow .pipeline-step:nth-child(1),
+.pipeline-flow .pipeline-step:nth-child(3),
+.pipeline-flow .pipeline-step:nth-child(5) {
+    align-self: flex-start;
+}
+
+.pipeline-flow .pipeline-step:nth-child(2),
+.pipeline-flow .pipeline-step:nth-child(4) {
+    align-self: flex-end;
+}
+
+.step-content {
+    width: 100%;
+    text-align: left;
+}
+
+.step-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+.step-text {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.88) !important;
+    font-weight: 400 !important;
+    margin: 0 0 16px 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+.step-text strong {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.light-theme .step-text {
+    color: #1c1e22 !important;
+    font-weight: 400 !important;
+}
+
+.light-theme .step-text strong {
+    color: #121417 !important;
+}
+
+.step-apps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.app-tag {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: #cbd5e1 !important;
+    transition: all 0.2s ease;
+}
+
+.light-theme .app-tag {
+    background: rgba(18, 20, 23, 0.05) !important;
+    border: 1px solid rgba(18, 20, 23, 0.12) !important;
+    color: #3f3f46 !important;
+}
+
+.app-tag:hover {
+    background-color: var(--text-primary) !important;
+    color: var(--bg-color) !important;
+    border-color: var(--text-primary) !important;
+}
+
+.light-theme .app-tag:hover {
+    background-color: #121417 !important;
+    color: #f0f3f7 !important;
+    border-color: #121417 !important;
+}
+
+@media (max-width: 768px) {
+    .pipeline-step {
+        width: 100% !important;
+    }
+}
+
+@media (hover: hover) {
+    .pipeline-flow .pipeline-step:hover {
+        background-color: var(--tile-bg-active) !important;
+        border-color: var(--text-primary) !important;
+        border-left-color: var(--text-primary) !important;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .light-theme .pipeline-flow .pipeline-step:hover {
+        background-color: #ffffff !important;
+        border-color: var(--text-primary) !important;
+        border-left-color: var(--text-primary) !important;
+        box-shadow: 0 12px 24px rgba(18, 18, 18, 0.06) !important;
+    }
+
+    .pipeline-flow .pipeline-step:nth-child(1):hover,
+    .pipeline-flow .pipeline-step:nth-child(3):hover,
+    .pipeline-flow .pipeline-step:nth-child(5):hover {
+        transform: translateX(4px);
+    }
+
+    .pipeline-flow .pipeline-step:nth-child(2):hover,
+    .pipeline-flow .pipeline-step:nth-child(4):hover {
+        transform: translateX(-4px);
+    }
+}
+
+@media (hover: none) {
+    .pipeline-flow .pipeline-step:hover,
+    .pipeline-flow .pipeline-step:active,
+    .pipeline-step:hover,
+    .pipeline-step:active {
+        transform: none !important;
+        background-color: var(--tile-bg) !important;
+        border-color: var(--border-color) !important;
+        border-left-color: var(--border-color) !important;
+        box-shadow: none !important;
+    }
+
+    .pipeline-step {
+        -webkit-tap-highlight-color: transparent !important;
+        user-select: text !important;
+        -webkit-user-select: text !important;
+    }
+}

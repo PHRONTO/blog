@@ -1,0 +1,238 @@
+.games-rec-grid.symmetric-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    margin: 30px 0 50px 0;
+    width: 100%;
+}
+
+.game-rec-card {
+    display: flex;
+    flex-direction: column;
+    padding: 0 !important;
+    overflow: hidden;
+    border-radius: 16px;
+    background-color: var(--tile-bg);
+    border: 1px solid var(--border-color);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 0.25s ease, 
+                box-shadow 0.25s ease;
+}
+
+.game-cover-wrapper.large-video {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #000;
+    overflow: hidden;
+}
+
+.game-preview-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+}
+
+.game-rec-info {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.game-rec-info h3 {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+.game-description,
+.game-reason {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    font-size: 0.94rem !important;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.88) !important;
+    font-weight: 400 !important;
+}
+
+body.light-theme:not(.gta-theme-active) .game-description, 
+body.light-theme:not(.gta-theme-active) .game-reason {
+    color: #1c1e22 !important;
+}
+
+.game-description strong,
+.game-reason strong {
+    color: var(--text-primary) !important;
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.72rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    letter-spacing: 1.5px !important;
+    opacity: 0.85 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+body.light-theme:not(.gta-theme-active) .game-description strong, 
+body.light-theme:not(.gta-theme-active) .game-reason strong {
+    color: #4b5563 !important;
+    opacity: 1 !important;
+}
+
+.game-genre-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 4px 10px;
+    font-size: 0.65rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+    color: #fff;
+    background: rgba(18, 18, 18, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 2;
+}
+
+.game-genre-tag.pre-order {
+    background: rgba(0, 114, 206, 0.8);
+    border-color: rgba(0, 114, 206, 0.3);
+}
+
+body, h1, .logo, .ps5-tile, .ps5-tile svg, .ps5-tile span, .ps5-card, 
+.game-rec-info h3, .game-description, .game-reason, .game-description strong, .game-reason strong {
+    transition: background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+                opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+                transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body.gta-theme-active {
+    background-image: 
+        radial-gradient(rgba(255, 0, 127, 0.35) 1.5px, transparent 0),
+        radial-gradient(circle at 50% 25%, rgba(76, 16, 97, 0.65) 0%, #06030a 70%) !important;
+    background-size: 30px 30px, 100% 100% !important;
+}
+
+body.gta-theme-active .logo {
+    color: #00d2ff !important;
+    text-shadow: 0 0 15px #00d2ff, 0 0 30px rgba(0, 210, 255, 0.6) !important;
+}
+
+body.gta-theme-active h1 {
+    color: #00d2ff !important;
+    text-shadow: 0 0 20px #00d2ff, 0 0 40px rgba(0, 210, 255, 0.5) !important;
+}
+
+body.gta-theme-active .ps5-tile:not(.active) {
+    border-color: rgba(0, 210, 255, 0.3) !important;
+    background-color: rgba(10, 35, 50, 0.35) !important;
+}
+
+body.gta-theme-active .ps5-tile:not(.active) svg,
+body.gta-theme-active .ps5-tile:not(.active) span {
+    color: rgba(0, 210, 255, 0.45) !important;
+}
+
+body.gta-theme-active .ps5-tile.active {
+    border-color: #ff007f !important;
+    box-shadow: 0 0 25px rgba(255, 0, 127, 0.6) !important;
+}
+
+body.gta-theme-active .ps5-tile.active svg,
+body.gta-theme-active .ps5-tile.active span {
+    color: #ff007f !important;
+    filter: drop-shadow(0 0 8px #ff007f);
+}
+
+body.gta-theme-active .ps5-tile.active::after {
+    background-color: #ff007f !important;
+    box-shadow: 0 0 10px #ff007f !important;
+}
+
+body.gta-theme-active .card-gta {
+    border-color: #ff007f !important;
+    box-shadow: 0 25px 50px rgba(255, 0, 127, 0.4), 0 0 40px rgba(255, 0, 127, 0.25) !important;
+    background-color: rgba(25, 12, 38, 0.8) !important;
+}
+
+body.gta-theme-active .card-gta h3 {
+    color: #00d2ff !important;
+    text-shadow: 0 0 8px rgba(0, 210, 255, 0.6) !important;
+}
+
+body.gta-theme-active .card-gta .game-description strong,
+body.gta-theme-active .card-gta .game-reason strong {
+    color: #ff007f !important;
+    opacity: 1 !important;
+    text-shadow: 0 0 6px rgba(255, 0, 127, 0.4) !important;
+}
+
+body.gta-theme-active .card-gta .game-description,
+body.gta-theme-active .card-gta .game-reason {
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+}
+
+@media (hover: hover) {
+    body.gta-theme-active .games-rec-grid:has(.card-gta:hover) .game-rec-card:not(.card-gta) {
+        opacity: 0.18 !important;
+        border-color: rgba(255, 255, 255, 0.01) !important;
+        transform: scale(0.98) translateY(2px);
+        filter: grayscale(40%) !important;
+    }
+
+    .game-rec-card:hover {
+        transform: translateY(-5px);
+        background-color: var(--tile-bg-active);
+    }
+
+    body.light-theme:not(.gta-theme-active) .game-rec-card:hover {
+        background-color: #ffffff !important;
+    }
+    
+    .card-gta:hover {
+        border-color: #ff007f;
+        box-shadow: 0 15px 30px rgba(255, 0, 127, 0.15), 0 0 15px rgba(255, 0, 127, 0.1);
+    }
+    
+    .card-tlou:hover {
+        border-color: #39ff14;
+        box-shadow: 0 15px 30px rgba(57, 255, 20, 0.12), 0 0 15px rgba(57, 255, 20, 0.08);
+    }
+    
+    .card-me:hover {
+        border-color: #00d2ff;
+        box-shadow: 0 15px 30px rgba(0, 210, 255, 0.15), 0 0 15px rgba(0, 210, 255, 0.1);
+    }
+    
+    .card-tdp:hover {
+        border-color: #ff0000;
+        box-shadow: 0 15px 30px rgba(255, 0, 0, 0.15), 0 0 15px rgba(255, 0, 0, 0.1);
+    }
+}
+
+@media (max-width: 850px) {
+    .games-rec-grid.symmetric-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .game-cover-wrapper.large-video {
+        height: 180px;
+    }
+    .game-rec-card:hover {
+        transform: none !important;
+        box-shadow: none !important;
+        border-color: var(--border-color) !important;
+    }
+}

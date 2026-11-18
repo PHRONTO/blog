@@ -1,0 +1,310 @@
+#gameCanvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    background: #242429 !important; 
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+    transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+@media (hover: hover) {
+    #gameCanvas:hover {
+        border-color: var(--text-primary) !important;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.02) !important;
+    }
+}
+
+.light-theme #gameCanvas {
+    background: #e8ebf0 !important; 
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.03), 0 15px 35px rgba(0, 0, 0, 0.06) !important;
+    transform: none !important;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.game-wrapper {
+    position: relative;
+    width: 1000px;
+    max-width: 100%;
+    margin: 30px auto;
+}
+
+.game-controls {
+    position: absolute;
+    top: 45%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 10;
+}
+
+.game-controls .btn {
+    width: 210px;
+    padding: 12px 24px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    border-radius: 8px;
+    text-align: center;
+    box-sizing: border-box;
+    background: #18181b;
+    color: #ffffff;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    box-shadow: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.game-controls .btn:hover {
+    background: #27272a;
+    border-color: #ffffff;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.light-theme .game-controls .btn {
+    background: #ffffff !important;
+    color: #121417 !important;
+    border: 1.5px solid #121417 !important;
+    box-shadow: none !important;
+}
+
+.light-theme .game-controls .btn:hover {
+    background: #f4f4f5 !important;
+    border-color: #000000 !important;
+    color: #000000 !important;
+}
+
+
+
+.game-instruction-container {
+    width: max-content;
+    margin: 25px auto 35px auto;
+}
+
+.instruction-title {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    text-align: center;
+    color: var(--text-primary); 
+}
+
+.game-instruction {
+    display: grid;
+    grid-template-columns: auto auto; 
+    gap: 60px; 
+    padding: 22px 35px;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace; 
+    font-size: 15px; 
+    letter-spacing: 0.3px;
+    border-radius: 12px;
+    text-align: left;
+    background-color: var(--tile-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.instruction-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+.instruction-heading {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 13px; 
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+    opacity: 0.9;
+}
+
+.instruction-item {
+    line-height: 1.4;
+    color: var(--text-primary);
+    opacity: 0.85;
+}
+
+.mobile-rotate-overlay,
+.mobile-gamepad {
+    display: none !important;
+}
+
+@media (max-width: 950px) and (orientation: portrait) {
+    .game-wrapper {
+        display: none !important;
+    }
+
+    .mobile-rotate-overlay {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 30px auto;
+        padding: 40px 20px;
+        background-color: var(--tile-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .mobile-rotate-overlay p {
+        font-size: 1rem;
+        font-family: sans-serif;
+        font-weight: bold;
+        color: var(--text-secondary);
+        margin: 15px 0 0 0;
+        max-width: 280px;
+        line-height: 1.4;
+    }
+
+    .rotate-icon {
+        font-size: 2.5rem;
+        color: var(--text-primary);
+        display: inline-block;
+        transform: rotate(90deg);
+        animation: rotateHint 2s infinite ease-in-out;
+    }
+
+    @keyframes rotateHint {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(90deg); }
+    }
+}
+
+@media (max-width: 950px) and (orientation: landscape) {
+    .mobile-rotate-overlay {
+        display: none !important;
+    }
+
+    .game-container h1, 
+    .game-container .game-instruction-container,
+    header,
+    main,
+    footer {
+        display: block !important;
+    }
+
+    body:has(.game-container) main {
+        padding: 10px 0 60px 0 !important;
+        margin: 0 auto !important;
+        max-width: 1200px !important;
+        width: 100% !important;
+    }
+
+    .game-wrapper {
+        display: block !important;
+        width: 100%;
+        margin: 20px auto;
+        position: relative;
+    }
+    
+    #gameCanvas {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain;
+    }
+
+    .game-wrapper .mobile-gamepad {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;  
+        height: 100%; 
+        z-index: 5;   
+        pointer-events: none; 
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    .gamepad-btn {
+        pointer-events: auto; 
+        background: var(--tile-bg);
+        border: 1px solid var(--border-color);
+        color: var(--text-primary);
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .gamepad-left-zone {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: auto;
+        z-index: 2;
+    }
+
+    .gamepad-right-cheats {
+        position: absolute;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: row; 
+        gap: 6px;
+        pointer-events: auto;
+        z-index: 12;
+    }
+
+    .gamepad-right-cheats .gamepad-btn {
+        padding: 6px 12px;
+        font-size: 11px;
+        letter-spacing: 0.5px;
+    }
+    
+    .btn-options {
+        background: var(--tile-bg-active); 
+        border-color: var(--text-secondary);
+    }
+}
+
+@media (max-width: 768px) {
+    .game-instruction {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+        font-size: 14px;
+        width: auto;
+    }
+}
+
+.game-score-title {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace !important;
+    font-size: 0.75rem !important; 
+    font-weight: 700 !important; 
+    text-transform: uppercase;
+    letter-spacing: 1.8px !important;
+    color: var(--text-primary) !important;
+    text-shadow: none !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    opacity: 0.85;
+}
+
+.light-theme .game-score-title {
+    color: #121417 !important;
+    font-weight: 700 !important;
+    opacity: 0.9;
+}
+

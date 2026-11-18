@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Достижения</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/html2canvas.min.js" defer></script>
+    <script src="js/theme.js" defer></script>
+    <script src="js/Terminal.js" defer></script>
+    <script src="js/TrophyPage.js" defer></script>
+    <script src="js/webhtml.js" defer></script>
+    <script src="js/chaos.js" defer></script>
+    <script src="js/player.js" defer></script>
+    <script src="js/wrapped.js" defer></script>
+</head>
+<body>
+    <script>
+        if (sessionStorage.getItem('cat_chat_window_open') === 'true') document.body.classList.add('chat-restored-state');
+        if (localStorage.getItem('global_player_minimized') === 'true') document.body.classList.add('player-restored-minimized');
+    </script>
+
+    <header>
+        <div class="logo-row">
+            <a href="index.html" class="logo">PHRONTO</a>
+            <div class="theme-switch-container">
+                <span class="switch-label label-light">СВЕТЛАЯ</span>
+                <button class="theme-toggle-switch" id="themeToggle" aria-label="Переключить тему оформления">
+                    <div class="switch-rail">
+                        <div class="switch-handle">
+                            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                        </div>
+                    </div>
+                </button>
+                <span class="switch-label label-dark">ТЕМНАЯ</span>
+            </div>
+        </div>
+        <nav class="ps5-menu">
+            <a href="index.html" class="ps5-tile">
+                <div class="ps5-tile-content">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3L2 12h3v8a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-8h3L12 3z"/>
+                    </svg>
+                    <span>Главная</span>
+                </div>
+            </a>
+            <a href="music.html" class="ps5-tile">
+                <div class="ps5-tile-content">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h6V3h-8z"/>
+                    </svg>
+                    <span>Музыка</span>
+                </div>
+            </a>
+            <a href="game.html" class="ps5-tile">
+                <div class="ps5-tile-content">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                    </svg>
+                    <span>Игротека</span>
+                </div>
+            </a>
+            <a href="tech.html" class="ps5-tile">
+                <div class="ps5-tile-content">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M5 5h14v14H5V5zm4 4v6h6V9H9zm-5 2H2v2h2v-2zm16 0h2v2h-2v-2zm-9-9h2v2h-2V2zm0 18h2v2h-2v-2zM7 2h1v2H7V2zm9 0h1v2h-1V2zM7 20h1v2H7v-2zm9 0h1v2h-1v-2zM2 7h2v1H2V7zm0 9h2v1H2v-1zm18-9h2v1h-2V7zm0 9h2v1h-2v-1z"/>
+                    </svg>
+                    <span>Софт</span>
+                </div>
+            </a>
+            <a href="trophy.html" class="ps5-tile active">
+                <div class="ps5-tile-content">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18 2H6c-1.1 0-2 .9-2 2v3c0 2.24 1.51 4.13 3.54 4.7C8.21 13.36 10 15 12 15s3.79-1.64 4.46-3.3c2.03-.57 3.54-2.46 3.54-4.7V4c0-1.1-.9-2-2-2zM6 7V4h2v3H6zm12 0h-2V4h2v3zm-6 10c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm2 2h-4v2h4v-2z"/>
+                    </svg>
+                    <span>Достижения</span>
+                </div>
+            </a>
+            <a href="dino.html" class="ps5-tile">
+                <div class="ps5-tile-content">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M21.5 6h-19C1.67 6 1 7.12 1 8.5v7c0 1.38.67 2.5 1.5 2.5.83 0 1.66-.67 2-1.5l1.5-3.5h12l1.5 3.5c.34.83 1.17 1.5 2 1.5.83 0 1.5-1.12 1.5-2.5v-7c0-1.38-.67-2.5-1.5-2.5zm-14 5H6v2H5v-2H3.5v-1H5V8h1v2h1.5v1zM14.5 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                    </svg>
+                    <span>Игра</span>
+                </div>
+            </a>
+        </nav>
+    </header>
+
+    <main class="trophy-container">
+        <div class="trophy-intro">
+            <h1>Достижения, но они твои!</h1>
+            <p>Тут ваш статус исследования моего блога. Разблокируйте цифровые награды за изучение разделов и поиск пасхалок. За каждую открытую награду вы получите всплывающее уведомление.</p>
+        </div>
+
+        <div class="ps5-trophy-workspace">
+            <div class="trophy-progress-showcase">
+                <div class="showcase-content">
+                    <div id="secretHintBadge" class="secret-hint-badge">
+                        <img src="img/CatBonus.gif" alt="Котик" class="showcase-cat-perch" title="Мяу!">
+                        <div class="hint-badge-status-zone">
+                            <span id="secretHintText" class="hint-text">СЕКРЕТНЫЙ СЕКРЕТ ЕЩЕ НЕ ОТКРЫТ!</span>
+                        </div>
+                        <div id="secretCodeTerminal" class="secret-code-terminal" style="display: none;">
+                            <input type="text" id="secretCodeInput" placeholder="ВВЕДИТЕ КОД..." maxlength="30">
+                            <button id="submitSecretCodeBtn">ENTER</button>
+                        </div>
+                    </div>
+
+                    <div class="css-progress-wheel" id="main-progress-wheel">
+                        <div class="wheel-core-disk">
+                            <div class="percentage" id="progress-percent">0%</div>
+                        </div>
+                    </div>
+
+                    <div class="showcase-stats-row">
+                        <div class="stat-node"><strong id="progress-count">0 / 14</strong> <span>Открыто наград</span></div>
+                    </div>
+
+                    <div class="trophy-counters-bar">
+                        <div class="counter-item c-bronze">BRONZE <span id="count-b">0</span></div>
+                        <div class="counter-item c-silver">SILVER <span id="count-s">0</span></div>
+                        <div class="counter-item c-gold">GOLD <span id="count-g">0</span></div>
+                        <div class="counter-item c-platinum">PLATINUM <span id="count-p">0</span></div>
+                    </div>
+                </div>
+
+                <div class="cat-medals-section">
+                    <div class="medals-section-header">
+                        <span class="medals-section-title">Особые отметки Котика</span>
+                        <span class="medals-section-hint">(не учитывается в прогрессе)</span>
+                    </div>
+                    <div class="cat-medals-stack">
+                        <div id="medal-minus-eyes" class="cat-medal-item locked">
+                            <div class="item-tier-indicator"></div>
+                            <div class="medal-info">
+                                <div class="item-header-meta">
+                                    <span class="badge-tier">Метка</span>
+                                    <span class="status-label">Заблокировано</span>
+                                </div>
+                                <h4>Минус глаза</h4>
+                                <p>Выдается, если вы проигнорировали совет Котика и оставили светлую тему.</p>
+                            </div>
+                            <div class="item-status">
+                                <svg class="icon-lock" viewBox="0 0 24 24" fill="currentColor" style="width: 14px; height: 14px;">
+                                    <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                                </svg>
+                                <svg class="icon-cup" viewBox="0 0 24 24" fill="currentColor" style="display: none; width: 18px; height: 18px;">
+                                    <path d="M18 2H6c-1.1 0-2 .9-2 2v3c0 2.24 1.51 4.13 3.54 4.7C8.21 13.36 10 15 12 15s3.79-1.64 4.46-3.3c2.03-.57 3.54-2.46 3.54-4.7V4c0-1.1-.9-2-2-2zM6 7V4h2v3H6zm12 0h-2V4h2v3zm-6 10c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm2 2h-4v2h4v-2z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div id="medal-cat-proud" class="cat-medal-item locked">
+                            <div class="item-tier-indicator"></div>
+                            <div class="medal-info">
+                                <div class="item-header-meta">
+                                    <span class="badge-tier">Метка</span>
+                                    <span class="status-label">Заблокировано</span>
+                                </div>
+                                <h4>Со вкусом</h4>
+                                <p>Выдается, если вы прислушались к совету Котика и включили темную тему.</p>
+                            </div>
+                            <div class="item-status">
+                                <svg class="icon-lock" viewBox="0 0 24 24" fill="currentColor" style="width: 14px; height: 14px;">
+                                    <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                                </svg>
+                                <svg class="icon-cup" viewBox="0 0 24 24" fill="currentColor" style="display: none; width: 18px; height: 18px;">
+                                    <path d="M18 2H6c-1.1 0-2 .9-2 2v3c0 2.24 1.51 4.13 3.54 4.7C8.21 13.36 10 15 12 15s3.79-1.64 4.46-3.3c2.03-.57 3.54-2.46 3.54-4.7V4c0-1.1-.9-2-2-2zM6 7V4h2v3H6zm12 0h-2V4h2v3zm-6 10c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm2 2h-4v2h4v-2z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div id="medal-end-epoch" class="cat-medal-item locked">
+                            <div class="item-tier-indicator"></div>
+                            <div class="medal-info">
+                                <div class="item-header-meta">
+                                    <span class="badge-tier">Метка</span>
+                                    <span class="status-label">Заблокировано</span>
+                                </div>
+                                <h4>Конец эпохи</h4>
+                                <p>Выдается за расшифровку главного кода доступа терминала после 100% изучения блога.</p>
+                            </div>
+                            <div class="item-status">
+                                <svg class="icon-lock" viewBox="0 0 24 24" fill="currentColor" style="width: 14px; height: 14px;"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                                <svg class="icon-cup" viewBox="0 0 24 24" fill="currentColor" style="display: none; width: 18px; height: 18px;"><path d="M18 2H6c-1.1 0-2 .9-2 2v3c0 2.24 1.51 4.13 3.54 4.7C8.21 13.36 10 15 12 15s3.79-1.64 4.46-3.3c2.03-.57 3.54-2.46 3.54-4.7V4c0-1.1-.9-2-2-2zM6 7V4h2v3H6zm12 0h-2V4h2v3zm-6 10c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm2 2h-4v2h4v-2z"/></svg>
+                            </div>
+                        </div>
+
+                        <div class="cat-medal-item locked" id="medal-retro-bones">
+                            <div class="item-tier-indicator"></div>
+                            <div class="medal-info">
+                                <div class="item-header-meta">
+                                    <span class="badge-tier">Метка</span>
+                                    <span class="status-label">Заблокировано</span>
+                                </div>
+                                <h4>Встряхнуть косточками</h4>
+                                <p>Выдается за возвращение в эпоху Web 1.0.</p>
+                            </div>
+                            <div class="item-status">
+                                <svg class="icon-lock" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                                <svg class="icon-cup" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M18 2H6c-1.1 0-2 .9-2 2v3c0 2.24 1.51 4.13 3.54 4.7C8.21 13.36 10 15 12 15s3.79-1.64 4.46-3.3c2.03-.57 3.54-2.46 3.54-4.7V4c0-1.1-.9-2-2-2zM6 7V4h2v3H6zm12 0h-2V4h2v3zm-6 10c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm2 2h-4v2h4v-2z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-system-panel">
+                    <button id="systemResetBtn" class="dashboard-reset-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="reset-btn-icon">
+                            <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                        </svg>
+                        Сбросить весь прогресс
+                    </button>
+                </div>
+            </div>
+
+            <div class="trophy-activity-stack">
+                <div class="ps5-card trophy-activity-item tier-bronze locked" id="trophy-welcome">
+                    <div class="item-tier-indicator"></div>
+                    <div class="item-main-info">
+                        <div class="item-header-meta">
+                            <span class="badge-tier">Bronze</span>
+                            <span class="status-label">Заблокировано</span>
+                        </div>
+                        <h3>Первая встреча</h3>
+                        <p>Выдается за посещение главной страницы.</p>
+                    </div>
+                    <div class="item-status">
+                        <svg class="icon-lock" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 10c-.55 0-1-.45-1-1v-2c0-.55.45-1 1-1s1 .45 1 1v2c0 .55-.45 1-1 1z"/></svg>
+                        <svg class="icon-cup" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M18 2H6c-1.1 0-2 .9-2 2v3c0 2.24 1.51 4.13 3.54 4.7C8.21 13.36 10 15 12 15s3.79-1.64 4.46-3.3c2.03-.57 3.54-2.46 3.54-4.7V4c0-1.1-.9-2-2-2zM6 7V4h2v3H6zm12 0h-2V4h2v3zm-6 10c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm2 2h-4v2h4v-2z"/></svg>
+                    </div>
+                </div>
+
+                <div class="ps5-card trophy-activity-item tier-bronze locked" id="trophy-music">
+                    <div class="item-tier-indicator"></div>
+                    <div class="item-main-info">
+                        <div class="item-header-meta">
+                            <span class="badge-tier">Bronze</span>
+                            <span class="status-label">Заблокировано</span>
+                        </div>
+                        <h3>Зацени биток</h3>
+                        <p>Выдается за посещение страницы Музыка.</p>
+                    </div>
+                    <div class="item-status">
+                        <svg class="icon-lock" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 10c-.55 0-1-.45-1-1v-2c0-.55.45-1 1-1s1 .45 1 1v2c0 .55-.45 1-1 1z"/></svg>
+                        <svg class="icon-cup" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M18 2H6c-1.1 0-2 .9-2 2v3c0 2.24 1.51 4.13 3.54 4.7C8.21 13.36 10 15 12 15s3.79-1.64 4.46-3.3c2.03-.57 3.54-2.46 3.54-4.7V4c0-1.1-.9-2-2-2zM6 7V4h2v3H6zm12 0h-2V4h2v3zm-6 10c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm2 2h-4v2h4v-2z"/></svg>
+                    </div>
+                </div>
+
+                <div class="ps5-card trophy-activity-item tier-bronze locked" id="trophy-games">
+                    <div class="item-tier-indicator"></div>
+                    <div class="item-main-info">
+                        <div class="item-header-meta">
+                            <span class="badge-tier">Bronze</span>
+                            <span class="status-label">Заблокировано</span>
+                        </div>
+                        <h3>Во что поиграть?</h3>
+                        <p>Выдается за посещение страницы Игротека.</p>
+                    </div>
+                    <div class="item-status">
+                        <svg class="icon-lock" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 10c-.55 0-1-.45-1-1v-2c0-.55.45-1 1-1s1 .45 1 1v2c0 .55-.45 1-1 1z"/></svg>
+                        <svg class="icon-cup" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M18 2H6c-1.1 0-2 .9-2 2v3c0 2.24 1.51 4.13 3.54 4.7C8.21 13.36 10 15 12 15s3.79-1.64 4.46-3.3c2.03-.57 3.54-2.46 3.54-4.7V4c0-1.1-.9-2-2-2zM6 7V4h2v3H6zm12 0h-2V4h2v3zm-6 10c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm2 2h-4v2h4v-2z"/></svg>
+                    </div>
+                </div>
+
+                <div class="ps5-card trophy-activity-item tier-bronze locked" id="trophy-tech">
+                    <div class="item-tier-indicator"></div>
+                    <div class="item-main-info">
+                        <div class="item-header-meta">
+                            <span class="badge-tier">Bronze</span>
+                            <span class="status-label">Заблокировано</span>
+                        </div>
+                        <h3>Тыжпрограммист</h3>
+                        <p>Выдается за посещение страницы Софт.</p>
+                    </div>
+                    <div class="item-status">
+                        <svg class="icon-lock" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 10c-.55 0-1-.45-1-1v-2c0-.55.45-1 1-1s1 .45 1 1v2c0 .55-.45 1-1 1z"/></svg>
+                        <svg class="icon-cup" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M18 2H6c-1.1 0-2 .9-2 2v3c0 2.24 1.51 4.13 3.54 4.7C8.21 13.36 10 15 12 15s3.79-1.64 4.46-3.3c2.03-.57 3.54-2.46 3.54-4.7V4c0-1.1-.9-2-2-2zM6 7V4h2v3H6zm12 0h-2V4h2v3zm-6 10c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm2 2h-4v2h4v-2z"/></svg>
+                    </div>
+                </div>
+
+                <div class="ps5-card trophy-activity-item tier-bronze locked" id="trophy-achievements">
+                    <div class="item-tier-indicator"></div>
+                    <div class="item-main-info">
+                        <div class="item-header-meta">
+                            <span class="badge-tier">Bronze</span>
+                            <span class="status-label">Заблокировано</span>
+                        </div>
+                        <h3>Чё по ачивкам?</h3>
+                        <p>Выдается за посещение страницы Достижения.</p>
+                    </div>
+                    <div class="item-status">
+                        <svg class="icon-lock" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 10c-.55 0-1-.45-1-1v-2c0-.55.45-1 1-1s1 .45 1 1v2c0 .55-.45 1-1 1z"/></svg>
+                        <svg class="icon-cup" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M18 2H6c-1.1 0-2 .9-2 2v3c0 2.24 1.51 4.13 3.54 4.7C8.21 13.36 10 15 12 15s3.79-1.64 4.46-3.3c2.03-.57 3.54-2.46 3.54-4.7V4c0-1.1-.9-2-2-2zM6 7V4h2v3H6zm12 0h-2V4h2v3zm-6 10c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm2 2h-4v2h4v-2z"/></svg>
+                    </div>
+                </div>
+
+                <div class="ps5-card trophy-activity-item tier-bronze locked" id="trophy-dino">
+                    <div class="item-tier-indicator"></div>
+                    <div class="item-main-info">
+                        <div class="item-header-meta">
+                            <span class="badge-tier">Bronze</span>
+                            <span class="status-label">Заблокировано</span>
+                        </div>
+                        <h3>Интернет упал</h3>
+                        <p>Выдается за посещение страницы с мини-игрой.</p>
+                    </div>
+                    <div class="item-status">
+                        <svg class="icon-lock" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 10c-.55 0-1-.45-1-1v-2c0-.55.45-1 1-1s1 .45 1 1v2c0 .55-.45 1-1 1z"/></svg>
+                        <svg class="icon-cup" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M18 2H6c-1.1 0-2 .9-2 2v3c0 2.24 1.51 4.13 3.54 4.7C8.21 13.36 10 15 12 15s3.79-1.64 4.46-3.3c2.03-.57 3.54-2.46 3.54-4.7V4c0-1.1-.9-2-2-2zM6 7V4h2v3H6zm12 0h-2V4h2v3zm-6 10c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm2 2h-4v2h4v-2z"/></svg>
+                    </div>
+                </div>
+
+                <div class="ps5-card trophy-activity-item tier-silver locked" id="trophy-player">
+                    <div class="item-tier-indicator"></div>
+                    <div class="item-main-info">
+                        <div class="item-header-meta">
+                            <span class="badge-tier">Silver</span>
+                            <span class="status-label">Заблокировано</span>
+                        </div>
+                        <h3>Первый аккорд</h3>
+                        <p>Выдается за включение сквозного медиаплеера.</p>
+                    </div>
+                    <div class="item-status">
+                        <svg class="icon-lock" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 10c-.55 0-1-.45-1-1v-2c0-.55.45-1 1-1s1 .45 1 1v2c0 .55-.45 1-1 1z"/></svg>
+                        <svg class="icon-cup" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M18 2H6c-1.1 0-2 .9-2 2v3c0 2.24 1.51 4.13 3.54 4.7C8.21 13.36 10 15 12 15s3.79-1.64 4.46-3.3c2.03-.57 3.54-2.46 3.54-4.7V4c0-1.1-.9-2-2-2zM6 7V4h2v3H6zm12 0h-2V4h2v3zm-6 10c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm2 2h-4v2h4v-2z"/></svg>
+                    </div>
+                </div>
+
+                <div class="ps5-card trophy-activity-item tier-silver locked" id="trophy-next-track">
+                    <div class="item-tier-indicator"></div>
+                    <div class="item-main-info">
+                        <div class="item-header-meta">
+                            <span class="badge-tier">Silver</span>
+                            <span class="status-label">Заблокировано</span>
+                        </div>
+                        <h3>Не то, листай дальше</h3>
+                        <p>Выдается за переключение трека в сквозном плеере.</p>
+                    </div>
+                    <div class="item-status">
+                        <svg class="icon-lock" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 10c-.55 0-1-.45-1-1v-2c0-.55.45-1 1-1s1 .45 1 1v2c0 .55-.45 1-1 1z"/></svg>
+                        <svg class="icon-cup" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M18 2H6c-1.1 0-2 .9-2 2v3c0 2.24 1.51 4.13 3.54 4.7C8.21 13.36 10 15 12 15s3.79-1.64 4.46-3.3c2.03-.57 3.54-2.46 3.54-4.7V4c0-1.1-.9-2-2-2zM6 7V4h2v3H6zm12 0h-2V4h2v3zm-6 10c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm2 2h-4v2h4v-2z"/></svg>
+                    </div>
+                </div>
+
+                <div class="ps5-card trophy-activity-item tier-silver locked" id="trophy-volume">
+                    <div class="item-tier-indicator"></div>
+                    <div class="item-main-info">
+                        <div class="item-header-meta">
+                            <span class="badge-tier">Silver</span>
+                            <span class="status-label">Заблокировано</span>
+                        </div>
+                        <h3>Плюс уши</h3>
+                        <p>Выдается, если при просмотре видеоплеера на странице Музыки включить звук Live Show Фараона.</p>
+                    </div>
+                    <div class="item-status">
+                        <svg class="icon-lock" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 10c-.55 0-1-.45-1-1v-2c0-.55.45-1 1-1s1 .45 1 1v2c0 .55-.45 1-1 1z"/></svg>
+                        <svg class="icon-cup" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M18 2H6c-1.1 0-2 .9-2 2v3c0 2.24 1.51 4.13 3.54 4.7C8.21 13.36 10 15 12 15s3.79-1.64 4.46-3.3c2.03-.57 3.54-2.46 3.54-4.7V4c0-1.1-.9-2-2-2zM6 7V4h2v3H6zm12 0h-2V4h2v3zm-6 10c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm2 2h-4v2h4v-2z"/></svg>
+                    </div>
+                </div>
+
+                <div class="ps5-card trophy-activity-item tier-gold locked" id="trophy-score">
+                    <div class="item-tier-indicator"></div>
+                    <div class="item-main-info">
+                        <div class="item-header-meta">
+                            <span class="badge-tier">Gold</span>
+                            <span class="status-label">Заблокировано</span>
+                        </div>
+                        <h3>Сотка</h3>
+                        <p>Выдается в игре про прыгающего динозаврика при достижении результата как минимум в 100 очков за один раунд.</p>
+                    </div>
+                    <div class="item-status">
+                        <svg class="icon-lock" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 10c-.55 0-1-.45-1-1v-2c0-.55.45-1 1-1s1 .45 1 1v2c0 .55-.45 1-1 1z"/></svg>
+                        <svg class="icon-cup" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M18 2H6c-1.1 0-2 .9-2 2v3c0 2.24 1.51 4.13 3.54 4.7C8.21 13.36 10 15 12 15s3.79-1.64 4.46-3.3c2.03-.57 3.54-2.46 3.54-4.7V4c0-1.1-.9-2-2-2zM6 7V4h2v3H6zm12 0h-2V4h2v3zm-6 10c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm2 2h-4v2h4v-2z"/></svg>
+                    </div>
+                </div>
+
+                <div class="ps5-card trophy-activity-item tier-gold locked" id="trophy-web">
+                    <div class="item-tier-indicator"></div>
+                    <div class="item-main-info">
+                        <div class="item-header-meta">
+                            <span class="badge-tier">Gold</span>
+                            <span class="status-label">Заблокировано</span>
+                        </div>
+                        <h3>Карманный формат</h3>
+                        <p>Выдается за запуск адаптивной мобильной версии блога на телефоне.</p>
+                    </div>
+                    <div class="item-status">
+                        <svg class="icon-lock" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 10c-.55 0-1-.45-1-1v-2c0-.55.45-1 1-1s1 .45 1 1v2c0 .55-.45 1-1 1z"/></svg>
+                        <svg class="icon-cup" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M18 2H6c-1.1 0-2 .9-2 2v3c0 2.24 1.51 4.13 3.54 4.7C8.21 13.36 10 15 12 15s3.79-1.64 4.46-3.3c2.03-.57 3.54-2.46 3.54-4.7V4c0-1.1-.9-2-2-2zM6 7V4h2v3H6zm12 0h-2V4h2v3zm-6 10c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm2 2h-4v2h4v-2z"/></svg>
+                    </div>
+                </div>
+
+                <div class="ps5-card trophy-activity-item tier-platinum locked" id="trophy-gta">
+                    <div class="item-tier-indicator"></div>
+                    <div class="item-main-info">
+                        <div class="item-header-meta">
+                            <span class="badge-tier">Platinum</span>
+                            <span class="status-label">Заблокировано</span>
+                        </div>
+                        <h3>GTA? Дайте 6</h3>
+                        <p>Выдается, если в разделе Игротеки навести курсор на карточку GTA 6 и активировать неоновую тему.</p>
+                    </div>
+                    <div class="item-status">
+                        <svg class="icon-lock" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 10c-.55 0-1-.45-1-1v-2c0-.55.45-1 1-1s1 .45 1 1v2c0 .55-.45 1-1 1z"/></svg>
+                        <svg class="icon-cup" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M18 2H6c-1.1 0-2 .9-2 2v3c0 2.24 1.51 4.13 3.54 4.7C8.21 13.36 10 15 12 15s3.79-1.64 4.46-3.3c2.03-.57 3.54-2.46 3.54-4.7V4c0-1.1-.9-2-2-2zM6 7V4h2v3H6zm12 0h-2V4h2v3zm-6 10c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm2 2h-4v2h4v-2z"/></svg>
+                    </div>
+                </div>
+
+                <div class="ps5-card trophy-activity-item tier-platinum locked" id="trophy-cat">
+                    <div class="item-tier-indicator"></div>
+                    <div class="item-main-info">
+                        <div class="item-header-meta">
+                            <span class="badge-tier">Platinum</span>
+                            <span class="status-label">Заблокировано</span>
+                        </div>
+                        <h3>9 жизней</h3>
+                        <p>Выдается в игре про прыгающего динозаврика, если сыграть хотя бы один раунд за Котика.</p>
+                    </div>
+                    <div class="item-status">
+                        <svg class="icon-lock" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 10c-.55 0-1-.45-1-1v-2c0-.55.45-1 1-1s1 .45 1 1v2c0 .55-.45 1-1 1z"/></svg>
+                        <svg class="icon-cup" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M18 2H6c-1.1 0-2 .9-2 2v3c0 2.24 1.51 4.13 3.54 4.7C8.21 13.36 10 15 12 15s3.79-1.64 4.46-3.3c2.03-.57 3.54-2.46 3.54-4.7V4c0-1.1-.9-2-2-2zM6 7V4h2v3H6zm12 0h-2V4h2v3zm-6 10c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm2 2h-4v2h4v-2z"/></svg>
+                    </div>
+                </div>
+
+                <div class="ps5-card trophy-activity-item tier-platinum locked" id="trophy-diplomat">
+                    <div class="item-tier-indicator"></div>
+                    <div class="item-main-info">
+                        <div class="item-header-meta">
+                            <span class="badge-tier">Platinum</span>
+                            <span class="status-label">Заблокировано</span>
+                        </div>
+                        <h3>Кошачий дипломат</h3>
+                        <p>Выдается за успешное извлечение фактов и секретного пароля от Котика в чате.</p>
+                    </div>
+                    <div class="item-status">
+                        <svg class="icon-lock" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm3 10c-.55 0-1-.45-1-1v-2c0-.55.45-1 1-1s1 .45 1 1v2c0 .55-.45 1-1 1z"/></svg>
+                        <svg class="icon-cup" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M18 2H6c-1.1 0-2 .9-2 2v3c0 2.24 1.51 4.13 3.54 4.7C8.21 13.36 10 15 12 15s3.79-1.64 4.46-3.3c2.03-.57 3.54-2.46 3.54-4.7V4c0-1.1-.9-2-2-2zM6 7V4h2v3H6zm12 0h-2V4h2v3zm-6 10c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm2 2h-4v2h4v-2z"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <footer>
+        <p>&copy; 2026 Phronto</p>
+    </footer>
+
+    <div class="ps5-persistent-player">
+        <audio id="globalAudio" src="sound/music/InnerLight.mp3" loop></audio>
+        <div class="player-row-title">
+            <span class="track-title" id="playerTrackTitle">Elderbrook & Bob Moses - Inner Light</span>
+            <button class="player-min-btn" id="playerMinimizeBtn" title="Свернуть плеер">
+                <svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+            </button>
+        </div>
+        <div class="player-row-bottom-bar">
+            <div class="player-controls-group">
+                <button class="player-ctrl-btn" id="playerPrevBtn" title="В начало трека / Предыдущий">
+                    <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+                </button>
+                <button class="player-ctrl-btn main-play-trigger" id="globalPlayerBtn" title="Воспроизведение / Пауза">
+                    <svg class="icon-play" viewBox="0 0 24 24" id="playerPlayIcon"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="icon-pause" viewBox="0 0 24 24" id="playerPauseIcon" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <button class="player-ctrl-btn" id="playerNextBtn" title="Следующий трек">
+                    <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6zm9-12v12h2V6z"/></svg>
+                </button>
+                <button class="player-ctrl-btn" id="playerLoopBtn" title="Зациклить плейлист (выкл.)" style="opacity: 0.45;">
+                    <svg viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
+                </button>
+            </div>
+            <span class="time-stamp digit-current" id="playerCurrentTime">0:00</span>
+            <div class="progress-bar-container" id="progressBarContainer">
+                <div class="progress-bar-fill" id="progressBarFill"></div>
+                <div class="progress-bar-handle" id="progressBarHandle"></div>
+            </div>
+            <span class="time-stamp digit-duration" id="playerDurationTime">0:00</span>
+            <div class="player-volume-zone">
+                <span class="volume-icon" id="playerVolumeIcon">🔊</span>
+                <input type="range" class="volume-slider" id="playerVolume" min="0" max="1" step="0.01" value="0.5">
+                <span class="volume-percent-text" id="playerVolumePercent">50%</span>
+            </div>
+        </div>
+    </div>
+
+    <button class="ps5-mobile-player-trigger" id="playerMaximizeBtn" title="Развернуть плеер">
+        <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+    </button>
+
+    <div id="catChatWidget" class="cat-chat-widget">
+        <div id="catChatTrigger" class="cat-chat-trigger">
+            <div id="catChatTeaser" class="cat-chat-teaser">Мяу?</div>
+            <img src="img/GameImage/cat.png" alt="Чат" class="cat-trigger-icon">
+            <div class="chat-pulse-glow"></div>
+        </div>
+        <div id="catChatWindow" class="cat-chat-window">
+            <div class="chat-window-header">
+                <div class="chat-header-avatar">
+                    <img src="img/GameImage/cat.png" alt="Кото-ИИ">
+                    <span class="chat-online-status"></span>
+                </div>
+                <div class="chat-header-info">
+                    <h4>Котик</h4>
+                    <span class="chat-version">Активен</span>
+                </div>
+                <button id="chatCloseBtn" class="chat-close-x">&times;</button>
+            </div>
+            <div class="chat-window-body">
+                <div id="chatMessagesStack" class="chat-messages-stack">
+                    <div id="catTypingStatus" class="cat-msg-bubble system-typing">
+                        <span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-window-footer">
+                <button id="catPetBtn" class="chat-reply-btn" style="display: none;">Погладить котика</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
